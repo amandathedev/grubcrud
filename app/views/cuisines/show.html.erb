@@ -1,0 +1,5 @@
+<h2>Cuisine show page</h2>
+<% @restaurants.cuisine.each do |restaurant| %>
+    <h3><p align="right"><%= link_to restaurant.name, restaurant_path(restaurant) %></p></h3>
+<% end %>
+<p><%= link_to 'Back', :back %></p>
