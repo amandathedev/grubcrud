@@ -1,0 +1,6 @@
+<h2> This is order number: <%= @order.id %></h2>
+<% @order.items.each do |item| %>
+  "<%= item.name %>" from Restaurant: <%= item.restaurant.name %>br
+  (cuisine: <%= item.restaurant.cuisine.name %>)
+  <% end %></h2><br>
+  Total: $<%= @order.total_price %>

@@ -1,0 +1,8 @@
+<h2>This is the history of all orders:</h2>
+<% @orders.each do |order| %>
+  <h3> Order number <%= order.user_id %> (completed: <%= order.status %>)<br><% order.items.each do |item| %>
+    <%= item.name %> from Restaurant <%= item.restaurant.name %>(cuisine: <%= item.restaurant.cuisine.name %>)
+    <% end %><br>
+    Total: $<%= order.total_price %><br><br>
+  <% end %>
+  </h3>
