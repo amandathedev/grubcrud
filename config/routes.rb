@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :order_items
-  resources :cuisines
+  resources :cuisines, only: [:index, :show]
   resources :restaurants
   resources :items
   resources :orders
