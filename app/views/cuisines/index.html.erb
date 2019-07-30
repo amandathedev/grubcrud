@@ -1,0 +1,5 @@
+<h2>Cuisines Index Page</h2>
+<% @cuisines.each do |cuisine|%>
+  <p align="right"><%= link_to cuisine.name, cuisine_path(cuisine) %></p>
+<% end %>
+<p><%= link_to 'Back', :back %></p>
