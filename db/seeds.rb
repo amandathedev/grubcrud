@@ -21,7 +21,7 @@ end
     phone_number: Faker::PhoneNumber.unique.cell_phone,
     rating: Faker::Number.between(1, 100),
     review: Faker::Restaurant.review,
-    image: Faker::LoremFlickr.image("150x160", ['restaurant']),
+    image: Faker::LoremFlickr.image("150x160", ['food']),
     cuisine_id: Cuisine.find(Faker::Number.between(1, 15)).id,
     description: Faker::Restaurant.description
   )
@@ -43,6 +43,7 @@ end
     name: Faker::Food.dish,
     price: Faker::Commerce.price,
     image: Faker::LoremFlickr.image("150x160", ['food']),
+    description: Faker::Food.description,
     restaurant_id: Faker::Number.between(1, 15)
   )
 end
