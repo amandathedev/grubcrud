@@ -1,0 +1,61 @@
+# header of restaurant
+# 
+# <br>
+
+# instruct user how to add items to order.
+<h3>Click on item to see details</h3>
+<br>
+
+
+# List items from restaurant.
+# entire item is clickable to see item details.
+<% @items.each do |item| %>
+    <div>
+        <p><%= link_to "#{item.name}", item_path %> </p>
+        <br>
+        <a href= "<%= item_path(item)%>">
+            <img src= <%=  @item.img_url %> width="100px" height="100px">
+        </a>
+        <br>
+
+        <% link_to item_path do %>
+            <%= image_tag 'filename' %>
+        <% end %>
+        
+        <br>
+        <p><%= item.price %></p>
+        <br>
+    </div>
+    <hr>
+<% end %>
+
+# Do we add to cart directly from index? (no.)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p><a href="/frogs/new" class="btn btn-primary">Create a new frog</a></p>
+
+<% @frogs.each do |frog| %>
+  <div class="card">
+    <a href="/frogs/<%= frog.id %>">
+      <img src="http://<%= frog.color %>-frog.jpg.to/" alt="Frog Picture" height="115" width="175">
+    </a>
+    <p><a href="/frogs/<%= frog.id %>"><%= frog.name %></a></p>
+  </div>
+<% end %>
