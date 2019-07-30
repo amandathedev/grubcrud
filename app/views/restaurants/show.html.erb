@@ -1,0 +1,15 @@
+
+<h1> Welcome to <%=@restaurant.name%></h1>
+<br>
+<%form_for %>
+<%@restaurant.items.each do |item|%>
+        <div>
+        <p>Name: <%=item.name%></p>
+        <p>Description: <%=item.description%></p>
+        <p>Item Price: $<%=item.price %></p>
+        <img src = "https://loremflickr.com/<%=item.img_url%>" width = "200" height = "100">
+        <hr>
+        </div>
+<% end %>
+
+
