@@ -1,4 +1,7 @@
-<% @restaurant.items.each do |item| %>
+<h1> Welcome to <%=@restaurant.name%></h1>
+<br>
+
+<% @items.each do |item| %>
   <p><%= item.name %> | <%= number_to_currency item.price %>
   <%= form_for @order_item do |f| %>
     <%= f.hidden_field :item_id, value: item.id %>
