@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 2019_07_29_214659) do
     t.string "name"
     t.integer "price"
     t.string "img_url"
+    t.string "description"
     t.integer "restaurant_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -42,6 +43,7 @@ ActiveRecord::Schema.define(version: 2019_07_29_214659) do
   create_table "orders", force: :cascade do |t|
     t.integer "user_id"
     t.boolean "status"
+    t.integer "total_price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_orders_on_user_id"

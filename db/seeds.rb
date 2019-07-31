@@ -8,7 +8,7 @@
 
 require "faker"
 
-15.times do
+10.times do
   begin
     response =  RestClient::Request.execute(method: :get, url: "https://loremflickr.com/600/400/food", max_redirects: 0)
   rescue RestClient::ExceptionWithResponse => err
@@ -24,7 +24,7 @@ require "faker"
   )
 end
 
-50.times do
+200.times do
   begin
     response =  RestClient::Request.execute(method: :get, url: "https://loremflickr.com/600/400/food", max_redirects: 0)
   rescue RestClient::ExceptionWithResponse => err
@@ -40,12 +40,12 @@ end
       rating: Faker::Number.between(1, 100),
       review: Faker::Restaurant.review,
       img_url: @food_url,
-      cuisine_id: Cuisine.find(Faker::Number.between(1, 15)).id,
+      cuisine_id: Cuisine.find(Faker::Number.between(1, 10)).id,
       description: Faker::Restaurant.description
     )
 end
 
-100.times do
+5.times do
   User.create(
     name: Faker::Name.unique.name,
     username: Faker::Internet.unique.username,
@@ -56,7 +56,7 @@ end
   )
 end
 
-100.times do
+2000.times do
   begin
     response =  RestClient::Request.execute(method: :get, url: "https://loremflickr.com/600/400/food", max_redirects: 0)
   rescue RestClient::ExceptionWithResponse => err
@@ -71,13 +71,13 @@ end
     price: Faker::Commerce.price,
     description: Faker::Food.description,
     img_url: @food_url,
-    restaurant_id: Faker::Number.between(1, 30)
+    restaurant_id: Faker::Number.between(1, 200)
   )
 end
 
 5.times do
   Order.create(
-    user_id: Faker::Number.between(1, 100),
+    user_id: Faker::Number.between(1, 5),
     status: Faker::Boolean.boolean
   )
 end
