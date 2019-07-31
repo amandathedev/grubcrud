@@ -6,15 +6,13 @@
 
 
 
-  <%@restaurant.items.each do |item|%>
-    <div>
-    <p>Name: <%=item.name%></p>
-    <p>Description: <%=item.description%></p>
-    <p>Item Price: $<%=item.price %></p>
-
-    <hr>
-    </div>
-
+<% @restaurant.items.each do |item| %>
+  <p><%= item.name %> | <%= number_to_currency item.price %>
+  <%= form_for @order_item do |f| %>
+    <%= f.hidden_field :product_id, value: product.id %>
+    <%= f.number_field :quantity %>
+    <%= f.submit "Add to cart" %>
+  <% end %></p>
 <% end %>
 
 
