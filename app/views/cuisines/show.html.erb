@@ -1,6 +1,7 @@
 <h2><%=@cuisine.name%></h2>
 <% @cuisine.restaurants.each do |restaurant| %>
-    <h3><p align="left"><%= link_to restaurant.name, restaurant_path(restaurant) %></p></h3>
-    <p align="left"><img src = "https://loremflickr.com/<%=restaurant.img_url%>" width = "200" height = "100"></p>
+  <h3><p align="left"><%= link_to restaurant.name, restaurant_path(restaurant) %></p></h3>
+    
+  <%= link_to image_tag("https://loremflickr.com/#{restaurant.img_url}", :size => '200x100'), restaurant_path(restaurant) %>
 <% end %>
 <p><%= link_to 'Back', :back %></p>
