@@ -1,5 +1,6 @@
 <h2>Cuisines Index Page</h2>
 <% @cuisines.each do |cuisine|%>
-  <p align="right"><%= link_to cuisine.name, cuisine_path(cuisine) %></p>
+  <p align="left"><%= link_to cuisine.name, cuisine_path(cuisine) %></p>
+  <img src = "https://loremflickr.com/<%=cuisine.img_url%>" width = "200" height = "100">
 <% end %>
 <p><%= link_to 'Back', :back %></p>
