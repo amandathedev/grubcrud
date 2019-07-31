@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :items
   resources :orders
   resources :users
+  resource :cart, only: [:show]
   get '/login', to: 'sessions#new', as: 'login'
   post '/login', to: 'sessions#create'
   get '/secretapology', to: 'sessions#absolve', as: 'absolve'
