@@ -1,20 +1,15 @@
 require "faker"
 
-10.times do
-  begin
-    response =  RestClient::Request.execute(method: :get, url: "https://loremflickr.com/600/400/food", max_redirects: 0)
-  rescue RestClient::ExceptionWithResponse => err
-    err.response.inspect
-    if err.response.code == 302
-      @food_url = err.response.headers[:location]
-      @food_url
-    end
-  end
-  Cuisine.create(
-    name: Faker::Restaurant.unique.type,
-    img_url: @food_url
-  )
-end
+Cuisine.create(name: 'Japanese', img_url: 'https://images.unsplash.com/photo-1553621042-f6e147245754?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80')
+Cuisine.create(name: 'Mexican', img_url: 'https://images.unsplash.com/photo-1543352634-99a5d50ae78e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80')
+Cuisine.create(name: 'American', img_url: 'https://images.unsplash.com/photo-1555196301-9acc011dfde4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80')
+Cuisine.create(name: 'Chinese', img_url: 'https://images.unsplash.com/photo-1525755662778-989d0524087e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80')
+Cuisine.create(name: 'Moroccan', img_url: 'https://images.unsplash.com/photo-1517314626714-ac1b9a16515e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80')
+Cuisine.create(name: 'French', img_url: 'https://images.unsplash.com/photo-1480951759438-f39a376462f2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80')
+Cuisine.create(name: 'Thai', img_url: 'https://images.unsplash.com/photo-1441850605338-1b0b5a22e7b9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80')
+Cuisine.create(name: 'Indian', img_url: 'https://images.unsplash.com/photo-1542367592-8849eb950fd8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80')
+Cuisine.create(name: 'Italian', img_url: 'https://images.unsplash.com/photo-1498579150354-977475b7ea0b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80')
+Cuisine.create(name: 'German', img_url: 'https://images.unsplash.com/photo-1552913903-2cffa1962dc7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80')
 
 300.times do
   begin
