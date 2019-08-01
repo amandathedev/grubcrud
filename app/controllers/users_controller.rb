@@ -39,6 +39,7 @@ class UsersController < ApplicationController
     if current_user.id != params[:id].to_i
       redirect_to current_user
     end
+
   end
 
   def destroy
