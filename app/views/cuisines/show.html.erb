@@ -1,4 +1,4 @@
-<h2><%=@cuisine.name%></h2>
+<h2 id="cuisine-name"><%=@cuisine.name%></h2>
 
 <div class="container">
   <div class="row">
@@ -32,7 +32,13 @@
 
 </html>
         <%end%>
+      <div id="cuisine-cards" class="card">
+        <%= link_to image_tag("https://loremflickr.com/#{restaurant.img_url}", :size => '300x200'), restaurant_path(restaurant) %>
+        <div class="card-body">
+          <h4 id="restaurant-names"><%=restaurant.name%></h4>
+        </div>
       </div>
+      
     <% end %>
   </div>
 </div>
