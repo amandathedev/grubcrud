@@ -19,7 +19,7 @@ class SessionsController < ApplicationController
     flash[:errors] = ["invalid credentials"]
     session[:incorrect_count] += 1
       if session[:incorrect_count] >= 5
-        session[:lockout] = "You have exceeded your allotment of login attempts in your assigned worker time unit portion!"
+        session[:lockout] = "You have exceeded your number of login attempts!"
       end
     redirect_to login_path
     end

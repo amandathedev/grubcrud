@@ -3,7 +3,7 @@
   <p><%= item.name %> | <%= number_to_currency item.price %>
     <%= form_for @order_item do |f| %>
         <%= f.hidden_field :item_id, value: item.id %>
-        <%= f.number_field :quantity %>
+        <%= f.number_field :quantity, min: 0 %>
   <%= f.submit "Add to cart"%>
   <% end %></p>
 <% end %>

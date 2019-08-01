@@ -1,4 +1,3 @@
-
 class OrderItemsController < ApplicationController
   
   def new 
@@ -11,9 +10,12 @@ class OrderItemsController < ApplicationController
           @order_item.save
           redirect_back(fallback_location: root_path)
     else 
-      flash[:error] = "Your item/s could not be saved"
       redirect_to root_path
     end
+  end
+  
+  def show
+    @order_item = OrderItem.find
   end
 
   def destroy
@@ -21,11 +23,7 @@ class OrderItemsController < ApplicationController
     @order_item.destroy
     redirect_to cart_path
   end
-
-  def show
-    @order_item = OrderItem.find
-  end
-
+  
   private
 
   def item_params

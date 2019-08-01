@@ -1,4 +1,5 @@
 class RestaurantsController < ApplicationController   
+
   def index 
     @restaurants = Restaurant.all
   end
@@ -7,4 +8,5 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.find(params[:id])
     @order_item = current_order.order_items.new
   end 
+  
 end
