@@ -1,25 +1,18 @@
 class OrderItemsController < ApplicationController
-
-    def new
-        
-    end
+  
+  def new 
+  end
 
   def create
     @order = current_order
-    @item = @order.order_items.new(item_params)
-    # @order.save
-    
-
-    if @order.valid?
-      @order.save
-      session[:order_id] = @order.id
+    @order_item = @order.order_items.new(item_params)
+      if @order_item.valid?
+          @order_item.save
+          redirect_to cart_path
+    else 
+      flash[:error] = "Your item/s could not be saved"
       redirect_to root_path
-    else
-      errors = @order.errors.full_messages
-      flash[:errors] = errors  
-      render :new
     end
-
   end
 
   def destroy

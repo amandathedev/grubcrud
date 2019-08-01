@@ -9,6 +9,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.valid?
       @user.save
+      flash[:message] = "User saved"
       session[:user_id] = @user.id
       redirect_to root_path
     else
