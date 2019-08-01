@@ -1,7 +1,18 @@
 <h2><%=@cuisine.name%></h2>
-<% @cuisine.restaurants.each do |restaurant| %>
-  <h3><p align="left"><%= link_to restaurant.name, restaurant_path(restaurant) %></p></h3>
-    
-  <%= link_to image_tag("https://loremflickr.com/#{restaurant.img_url}", :size => '300x200'), restaurant_path(restaurant) %>
-<% end %>
+
+<div class="container">
+  <div class="row">
+    <% @cuisine.restaurants.each do |restaurant| %>
+      <div class="card">
+        <h3><%= link_to restaurant.name, restaurant_path(restaurant) %></h3>
+        <%= link_to image_tag("https://loremflickr.com/#{restaurant.img_url}", :size => '300x200'), restaurant_path(restaurant) %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
+
+
+
 <p><%= link_to 'Back', :back %></p>
