@@ -4,15 +4,12 @@
   <div class="row">
     <% @cuisine.restaurants.each do |restaurant| %>
       <div class="card">
-        <h3><%= link_to restaurant.name, restaurant_path(restaurant) %></h3>
-        <%= link_to image_tag("https://loremflickr.com/#{restaurant.img_url}", :size => '300x200'), restaurant_path(restaurant) %>
+        <%if restaurant.items.count > 0%>
+          <h3><%= link_to restaurant.name, restaurant_path(restaurant) %></h3>
+          <%= link_to image_tag("https://loremflickr.com/#{restaurant.img_url}", :size => '300x200'), restaurant_path(restaurant) %>
+        <%end%>
       </div>
     <% end %>
   </div>
 </div>
 
-
-
-
-
-<p><%= link_to 'Back', :back %></p>

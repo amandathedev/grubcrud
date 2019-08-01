@@ -1,8 +1,9 @@
 <h1>Hey, <%=@current_user.name.capitalize%>!</h1>
 
-<%= link_to "Edit Account Details", edit_user_path(@current_user) %>
+<%= link_to "Edit Account Details", edit_user_path(@current_user) %><br>
 <%= link_to "Delete User", @current_user, :data => {:confirm => "You sure?", :method => "delete"} %>
-
+<br>
+<br>
 <h2>Your order history:</h2>
 <%@current_user.orders.each do |order|%>
     
@@ -14,3 +15,6 @@
     <%end%>
     Order Total: <%=number_to_currency cart_total%><br>
 <%end%>
+<br>
+<a href = '/users/<%=@current_user.id%>/edit'><button type="button" class="btn btn-primary btn-md">Edit User</button></a>
+

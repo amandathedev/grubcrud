@@ -23,11 +23,11 @@ class OrderItemsController < ApplicationController
     @order_item.destroy
     redirect_to cart_path
   end
-  
+
   private
 
   def item_params
-    params.require(:order_item).permit(:quantity, :item_id[])
+    params.require(:order_item).permit(:quantity, :item_id)
   end
   
 end
