@@ -12,6 +12,9 @@
   <body>
     <div class="navbar">
       <% if logged_in? %>
+        <%= link_to "Home", root_path%>
+        <%= link_to "My Cart", cart_path%>
+        <%= link_to "My Account", user_path(session[:user_id])%>
         <%= link_to "Logout", logout_path, method: :delete %>
       <% else %>
         <%= link_to "Log In", login_path %><br>

@@ -1,8 +1,13 @@
+<h1>Your Cart</h1>
 
 <% if @order_items.any? %>
   <% @order_items.each do |i| %>
-    <p><%= i.item.name %> | <%= link_to "Delete", order_item_path(i.item), :data => {:confirm => "You sure?", :method => "delete"} %></p>
-    <p> Unit Price: <%= number_to_currency i.item.price %> | Quantity: <%= i.quantity %></p>
+   <p>Restaurant: <%= i.item.restaurant.name%> </p>
+      <p><%= i.item.name %> </p>
+       <p> Unit Price: <%= number_to_currency i.item.price %> | Quantity: <%= i.quantity %> | 
+       
+       <%= link_to "Delete", i, :data => {:confirm => "You sure?", :method => "delete"} %></p>
+  
   <% end %>
 
 <%cart_total = 0 %>
@@ -21,5 +26,5 @@ Your Total: <%=number_to_currency cart_total%>
 
 <br>
 
-<%= link_to "Checkout"%>
+<%= link_to "Checkout", order_path(session[:order_id])%>
 
