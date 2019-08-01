@@ -1,3 +1,4 @@
+
 class OrderItemsController < ApplicationController
   
   def new 
@@ -8,7 +9,7 @@ class OrderItemsController < ApplicationController
     @order_item = @order.order_items.new(item_params)
       if @order_item.valid?
           @order_item.save
-          redirect_to cart_path
+          redirect_back(fallback_location: root_path)
     else 
       flash[:error] = "Your item/s could not be saved"
       redirect_to root_path
@@ -16,10 +17,8 @@ class OrderItemsController < ApplicationController
   end
 
   def destroy
-    @order = current_order
-    @item = @order.order_items.find(params[:id])
-    @item.destroy
-    @order.save
+    @order_item = current_order.order_items.find(params[:id])
+    @order_item.destroy
     redirect_to cart_path
   end
 

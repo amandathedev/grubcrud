@@ -1,0 +1,21 @@
+<h1>Edit your account</h1>
+
+<%= form_for @user do |f| %>
+    <%= f.label 'Full name: '%>
+    <%= f.text_field :name %><br>
+    <%= f.label 'Edit a username: '%>
+    <%= f.text_field :username %><br>
+    <%= f.label 'Edit a password: '%>
+    <%= f.password_field :password %><br>
+    <%= f.label 'Confirm password: '%>
+    <%= f.password_field :password_confirmation %><br>
+    <%= f.label 'Enter your delivery address: '%>
+    <%= f.text_field :address %><br>
+    <%= f.label 'Email address: '%>
+    <%= f.email_field :email %><br>
+    <%= f.label 'Phone number: '%>
+    <%= f.phone_field :phone_number %><br>
+    <%= f.submit "Edit Account" %>
+<% end %>
+
+<br>
