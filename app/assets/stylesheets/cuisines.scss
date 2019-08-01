@@ -2,6 +2,16 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.flex {
-    display: flex;
+
+#cuisine-name {
+    text-align: center;
+    font-weight: 700;
+}
+
+#cuisine-cards {
+    margin: 0.5em;
+}
+
+#restaurant-names {
+    text-align: center;
 }
