@@ -7,12 +7,10 @@
     <p><%= error %></p>
   <% end %>
 <% end %>
-<div class="login-form">
-  <%= form_tag '/login' do %>
-    <%= label_tag :username %>
-    <%= text_field_tag :username %><br>
-    <%= label_tag :password %>
-    <%= password_field_tag :password %><br>
-    <%= submit_tag "Login" %>
-  <% end %>
-</div>
+<%= form_tag '/login' do %>
+  <%= label_tag :username %>
+  <%= text_field_tag :username %><br>
+  <%= label_tag :password %>
+  <%= password_field_tag :password %><br>
+  <button type="submit" class="btn btn-danger">Sign in</button>
+<% end %>

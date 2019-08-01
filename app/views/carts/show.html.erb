@@ -2,9 +2,8 @@
 
 <% if @order_items.any? %>
   <% @order_items.each do |i| %>
-   <p>Restaurant: <%= i.item.restaurant.name%> </p>
-      <p><%= i.item.name %> </p>
-       <p> Unit Price: <%= number_to_currency i.item.price %> | Quantity: <%= i.quantity %> | 
+       <p>Restaurant: <%= i.item.restaurant.name%> </p>
+       <strong><%= i.item.name %> </strong>  |   Unit Price: <%= number_to_currency i.item.price %>  |  Quantity: <%= i.quantity %> | 
        
        <%= link_to "Delete", i, :data => {:confirm => "You sure?", :method => "delete"} %></p>
   
@@ -14,7 +13,7 @@
 <%@order_items.each do |i|%>
     <%cart_total = cart_total + i.item.price * i.quantity.to_i%>
     <%end%>
-Your Total: <%=number_to_currency cart_total%>
+<strong><font size = 5>Your Total: <%=number_to_currency cart_total%></font></strong>
 <% else %>
   <p>Your shopping cart is empty.</p>
 <% end %>
