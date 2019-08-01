@@ -1,6 +1,7 @@
 
 <% @restaurant.items.each do |item| %>
-  <p><%= item.name %> | <%= number_to_currency item.price %>
+  <p><%= item.name %> | <%= number_to_currency item.price %><br>
+  <p><%= item.description %><br>
     <%= form_for @order_item do |f| %>
         <%= f.hidden_field :item_id, value: item.id %>
         <%= f.number_field :quantity, min: 0 %>
