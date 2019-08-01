@@ -6,7 +6,7 @@
 <h2>Your order history:</h2>
 <%@current_user.orders.each do |order|%>
     
-    <%=link_to Order No. <%=order.id%>, order_path(order.id)%>
+    Order No. <%=order.id%>
     <%=order.created_at.strftime("%b %d, %Y")%>
     <%cart_total = 0 %>
     <%order.order_items.each do |i|%>
