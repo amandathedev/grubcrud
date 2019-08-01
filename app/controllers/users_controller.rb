@@ -26,6 +26,7 @@ class UsersController < ApplicationController
   def update
     find_user
     if @user.update(user_params)
+      flash[:message] = "Your account has been successfully updated"
       redirect_to @user
     else
       render :edit
@@ -44,7 +45,7 @@ class UsersController < ApplicationController
     find_user
     @user.destroy
     flash[:notice] = "User deleted"
-    redirect_to users_path
+    redirect_to root_path
   end
 
   private

@@ -10,6 +10,7 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
+    @order_items = current_order.order_items
   end
 
   def create
@@ -38,10 +39,10 @@ class OrdersController < ApplicationController
     end
   end
 
-  def delete
-    @order = Order.find(parms[:id])
+  def destroy
+    @order = Order.find_by(user_id: session[:user_id])
     @order.destroy
-    render :new
+    render root_path
   end
   
 

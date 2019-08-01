@@ -1,8 +1,25 @@
-<h2> This is order number: <%= @order.id %></h2>
-<% @order.items.each do |item| %>
-  "<%= item.name %>" from Restaurant: <%= item.restaurant.name %>br
-  (cuisine: <%= item.restaurant.cuisine.name %>)
-  <% end %></h2><br>
-  Total: $<%= @order.total_price %>
+<h1>Order Confirmation Page</h1>
 
-  
+<h3> Reciept for Order No. <%= @order.id %></h3>
+
+
+<% if @order_items.any? %>
+  <% @order_items.each do |i| %>
+    <p><%= i.item.name %> |
+    Unit Price: <%= number_to_currency i.item.price %> | Quantity: <%= i.quantity %></p>
+    
+  <% end %>
+
+<%cart_total = 0 %>
+<%@order_items.each do |i|%>
+    <%cart_total = cart_total + i.item.price * i.quantity.to_i%>
+    <%end%>
+Your Total: <%=number_to_currency cart_total%>
+<% else %>
+  <p>Your shopping cart is empty.</p>
+<% end %>
+<br>
+<br>
+
+<%= link_to "Place another order", root_path%>
+<br>
