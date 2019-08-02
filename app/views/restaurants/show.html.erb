@@ -1,12 +1,17 @@
 
-<% @restaurant.items.each do |item| %>
-  <p><%= item.name %> | <%= number_to_currency item.price %><br>
-  <p><%= item.description %><br>
-    <%= form_for @order_item do |f| %>
-        <%= f.hidden_field :item_id, value: item.id %>
-        <%= f.number_field :quantity, min: 0 %>
-  <%= f.submit "Add to cart"%>
-  <% end %></p>
-<% end %>
-
+<div id="restaurant-wrapper">
+  <% @restaurant.items.each do |item| %>
+    <p><span id="item-names"><%= item.name %></span>  <span id="item-price"><%= number_to_currency item.price %></span></p>
+    <br>
+    <p id="item-description"><%= item.description %></p>
+      <div id="item-quantity">
+        <%= form_for @order_item do |f| %>
+          <%= f.hidden_field :item_id, value: item.id %>
+          <%= f.number_field :quantity, min: 0 %>
+          <%= f.submit "Add to cart"%>
+          <hr>
+        <% end %></p>
+      </div>
+  <% end %>
 <a href = '/cart'><button type="button" class="btn btn-danger btn-md">Go to My Cart</button></a>
+</div>

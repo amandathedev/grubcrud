@@ -14,15 +14,18 @@
  *= require_self
  */
 
+ *:focus {
+    outline-color: red;
+ }
+
 body {
     font-family: 'Hind Madurai', sans-serif !important;
-
+    height: 100%;
+    padding-bottom: 80px;
 }
 
 .navbar {
-  font-size: 1.3em;
-  margin: 0px;
-  top: 0;
+  font-size: 1.1em;
 }
 
 .jumbotron {
@@ -31,13 +34,14 @@ body {
 }
 
 // Fix
-.nav-link:hover {
+.red-hover:hover {
     color: #ea1c2c;
 }
 
 .navbar.scrolled {
     background:#ea1c2c;
     color: white;
-    transition: background 300ms;
+    transition: background 500ms;
 }
 
+  

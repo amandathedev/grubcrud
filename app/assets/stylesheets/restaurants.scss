@@ -1,3 +1,31 @@
 // Place all the styles related to the Restaurants controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#restaurant-wrapper {
+    margin-left: 10rem;
+    margin-right: 10rem;
+}
+
+#item-names {
+    font-weight: 700;
+    float: left;
+}
+
+#item-price {
+    float: right;
+}
+
+#item-description {
+    margin-left: 2em;
+}
+
+#item-quantity {
+    margin-bottom: 2em;
+}
+
+.checkout {
+    font-size: 1.4em;
+    font-weight: 700;
+    margin-left: 33%;
+}
