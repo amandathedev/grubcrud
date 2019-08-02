@@ -1,18 +1,21 @@
 <h2 id="cuisine-name"><%=@cuisine.name%></h2>
 
-
 <div class="container">
   <div class="row">
     <% @cuisine.restaurants.each do |restaurant| %>
-      <%if restaurant.items.count > 0%>
-      <div class="card">
-        <div id="cuisine-cards" class="card">
+      <div id="cuisine-cards" class="card">
+        <%= link_to image_tag("https://loremflickr.com/#{restaurant.img_url}", :size => '300x200'), restaurant_path(restaurant) %>
+        <div class="card-body">
           <h4 id="restaurant-names"><%=restaurant.name%></h4>
-          <%= link_to image_tag("https://loremflickr.com/#{restaurant.img_url}", :size => '300x200'), restaurant_path(restaurant) %>
-        <%end%>
         </div>
       </div>
+      
     <% end %>
   </div>
 </div>
 
+
+
+
+
+<p><%= link_to 'Back', :back %></p>
