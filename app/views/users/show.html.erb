@@ -1,20 +1,24 @@
 <h1>Hey, <%=@current_user.name.capitalize%>!</h1>
 
-<%= link_to "Edit Account Details", edit_user_path(@current_user) %><br>
-<%= link_to "Delete User", @current_user, :data => {:confirm => "You sure?", :method => "delete"} %>
 <br>
 <br>
 <h2>Your order history:</h2>
-<%@current_user.orders.each do |order|%>
+    <%if @current_user.orders.count > 0%>
+        <%@current_user.orders.each do |order|%>
     
-    Order No. <%=order.id%>
-    <%=order.created_at.strftime("%b %d, %Y")%>
-    <%cart_total = 0 %>
-    <%order.order_items.each do |i|%>
-        <%cart_total = cart_total + i.item.price * i.quantity.to_i%>
-    <%end%>
-    Order Total: <%=number_to_currency cart_total%><br>
-<%end%>
+            Order No. <%=order.id%>
+            <%=order.created_at.strftime("%b %d, %Y")%>
+            <%cart_total = 0 %>
+            <%order.order_items.each do |i|%>
+                <%cart_total = cart_total + i.item.price * i.quantity.to_i%>
+            <%end%>
+            Order Total: <%=number_to_currency cart_total%><br>
+        <%end%>
+        <%else %>
+        <%="You have not placed any orders yet."%>
+        <br>
+        <%end %>
 <br>
 <a href = '/users/<%=@current_user.id%>/edit'><button type="button" class="btn btn-primary btn-md">Edit User</button></a>
+<%= link_to "Delete User", @current_user, :data => {:confirm => "You sure?", :method => "delete"} %>
 

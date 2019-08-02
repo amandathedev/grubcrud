@@ -20,10 +20,11 @@
 <br>
 <br>
 
-<%= link_to "Go back to all restaurants", root_path%>
-<br>
+<a href = '/'><button type="button" class="btn btn-danger btn-sm">Go Home</button></a>
 
 <br>
 
-<%= link_to "Checkout", order_path(session[:order_id])%>
+<br>
+
+<a href = '/orders/<%="#{session[:order_id]}"%>'><button type="button" class="btn btn-outline-danger btn-sm">Checkout</button></a>
 

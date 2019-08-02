@@ -1,9 +1,8 @@
 <h1>Sign up for GrubCRUD</h1>
-    <%if @errors %>
-        <%@errors.each do |error| %>
-            <%=error%>
-        <%end %>
-    <%end %>
+<br>
+<% if flash[:message] %>
+    <div class="notice"><%= flash[:message] %></div>
+<% end %>
 
 <%= form_for @user do |f| %>
     <%= f.label 'Full name: '%>
