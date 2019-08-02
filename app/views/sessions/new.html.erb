@@ -1,12 +1,11 @@
 <h1 class="login-form">Login</h1>
-<% if session[:lockout] %>
-  <p><strong><%= session[:lockout] %></strong></p>
+
+<% if flash[:message] %>
+    <div class="alert alert-info" role="alert">
+        <div class="notice"><%= flash[:message] %></div>
+    </div>
 <% end %>
-<% if flash[:errors] %>
-  <% flash[:errors].each do |error| %>
-    <p><%= error %></p>
-  <% end %>
-<% end %>
+
 <%= form_tag '/login' do %>
   <%= label_tag :username %>
   <%= text_field_tag :username %><br>
@@ -14,3 +13,5 @@
   <%= password_field_tag :password %><br>
   <button type="submit" class="btn btn-danger">Sign in</button>
 <% end %>
+
+

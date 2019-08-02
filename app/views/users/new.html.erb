@@ -1,8 +1,5 @@
 <h1>Sign up for GrubCRUD</h1>
 <br>
-<% if flash[:message] %>
-    <div class="notice"><%= flash[:message] %></div>
-<% end %>
 
 <%= form_for @user do |f| %>
     <%= f.label 'Full name: '%>

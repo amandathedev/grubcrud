@@ -16,9 +16,9 @@ class SessionsController < ApplicationController
         session[:user_id] = user.id
         redirect_to root_path
       else
-    flash[:errors] = ["invalid credentials"]
+    flash[:message] = "Incorrect username or password. Please try again."
     session[:incorrect_count] += 1
-      if session[:incorrect_count] >= 5
+      if session[:incorrect_count] >= 100
         session[:lockout] = "You have exceeded your number of login attempts!"
       end
     redirect_to login_path
