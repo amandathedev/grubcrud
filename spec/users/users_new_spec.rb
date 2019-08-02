@@ -78,7 +78,7 @@ describe "Sign up page" do
   
   it "has a 'Create Account' button" do
     visit '/users/new'
-    expect(page.body).to include("Create Account")
+    expect(page).to have_button("Create Account")
   end
 
 
