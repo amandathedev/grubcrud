@@ -13,8 +13,6 @@ class RestaurantsController < ApplicationController
       flash[:message] = "Please login or sign up to place an order" 
       redirect_to login_path
     end
-      # if current_user
-      # end
   end 
 
 end

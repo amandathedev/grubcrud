@@ -11,7 +11,8 @@ class OrderItemsController < ApplicationController
           flash[:success] = "Item has been added to cart!"
           redirect_back(fallback_location: root_path)
     else 
-      redirect_to root_path
+      flash[:success] = "Please select at least one item"
+      redirect_back(fallback_location: root_path)
     end
   end
   

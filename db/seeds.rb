@@ -60,10 +60,3 @@ end
     restaurant_id: Faker::Number.between(1, 200)
   )
 end
-
-# 5.times do
-#   Order.create(
-#     user_id: Faker::Number.between(1, 5),
-#     status: Faker::Boolean.boolean,
-#   )
-# end
