@@ -12,7 +12,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to root_path
     else
-      @errors = @user.errors.full_messages
+      flash[:message] = @user.errors.full_messages
       redirect_to new_user_path
     end
   end
@@ -27,6 +27,7 @@ class UsersController < ApplicationController
       flash[:message] = "Your account has been successfully updated"
       redirect_to @user
     else
+      flash[:errors] = @user.errors.full_messages
       render :edit
     end
   end

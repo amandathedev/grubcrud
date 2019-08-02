@@ -1,3 +1,8 @@
+<% if flash[:success] %>
+    <div class="alert alert-warning" role="alert">
+        <div class="notice"><%= flash[:success] %></div>
+    </div>
+<% end %>
 
 <div id="restaurant-wrapper">
   <% @restaurant.items.each do |item| %>

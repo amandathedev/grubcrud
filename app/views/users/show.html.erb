@@ -1,8 +1,6 @@
 <h1>Hey, <%=@current_user.name.capitalize%>!</h1>
-
 <br>
-<br>
-<h2>Your order history:</h2>
+<h3>Your order history:</h3>
     <%if @current_user.orders.count > 0%>
         <%@current_user.orders.each do |order|%>
     
@@ -19,6 +17,6 @@
         <br>
         <%end %>
 <br>
-<a href = '/users/<%=@current_user.id%>/edit'><button type="button" class="btn btn-primary btn-md">Edit User</button></a>
-<%= link_to "Delete User", @current_user, :data => {:confirm => "You sure?", :method => "delete"} %>
+<a href = '/users/<%=@current_user.id%>/edit'><button type="button" class="btn btn-secondary btn-sm">Edit My Details</button></a><br>
+<font color = "#505050"><%= link_to "Delete User", @current_user, :data => {:confirm => "You sure?", :method => "delete"} %></font>
 

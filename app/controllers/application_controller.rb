@@ -16,8 +16,8 @@ class ApplicationController < ActionController::Base
     if session[:user_id]
       User.find(session[:user_id])
     else
-      flash[:message] = "Please login or sign-up to place an order" 
-      redirect_to new_user_path
+      flash[:message] = "Please login or sign up to place an order" 
+      redirect_to login_path
     end
   end
 

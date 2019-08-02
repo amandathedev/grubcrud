@@ -14,20 +14,21 @@
       <%cart_total = cart_total + i.item.price * i.quantity.to_i%>
     <%end%>
 
-    <span id="total">Your Total: <%=number_to_currency cart_total%></span>
+    <font size = 4><span id="total">Your Total: <%=number_to_currency cart_total%></span></font>
     <br>
-    <br>
-    <%= link_to "Checkout", order_path(session[:order_id]), class: 'red-hover'%>
   <% else %>
     <p>Your shopping cart is empty. <br> Are you getting hungry?</p>
   <% end %>
   <br>
-  <br>
-  
-<a href = '/'><button type="button" class="btn btn-danger btn-sm">Go Home</button></a>
+<a href="#" onClick="history.go(-1);return true;"><button type="button" class="btn btn-danger btn-sm">Back to Restaurant</button></a>
+
+
+
+
 
 <br>
-
-
-<a href = '/orders/<%="#{session[:order_id]}"%>'><button type="button" class="btn btn-outline-danger btn-sm">Checkout</button></a>
+<br>
+<%if @order_items.any? %>
+  <a href = '/orders/<%="#{session[:order_id]}"%>'><button type="button" class="btn btn-outline-danger btn-sm">Checkout</button></a>
+<%end%>
 
