@@ -36,3 +36,12 @@
     &:focus,
     &:hover {@include BoxShadowHelper(2);}
   }
+
+
+.container {
+  text-align: center;
+}
+
+.back-button {
+  margin-top: 3em;
+}
