@@ -1,5 +1,13 @@
 <h1>Edit your account</h1>
 
+<% if flash[:errors] %>
+    <div class="alert alert-danger" role="alert">
+        <%flash[:errors].each do |message| %>
+        <div class="notice"><%=message%></div>
+        <%end %>
+    </div>
+<% end %>
+
 <%= form_for @user do |f| %>
     <%= f.label 'Full name: '%>
     <%= f.text_field :name %><br>
