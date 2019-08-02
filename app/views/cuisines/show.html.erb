@@ -3,17 +3,17 @@
 <div class="container">
   <div class="row">
     <% @cuisine.restaurants.each do |restaurant| %>
+    <%if restaurant.items.count > 0 %>
       <div id="cuisine-cards" class="card">
         <%= link_to image_tag("https://loremflickr.com/#{restaurant.img_url}", :size => '300x200'), restaurant_path(restaurant) %>
         <div class="card-body">
           <h4 id="restaurant-names"><%=restaurant.name%></h4>
         </div>
       </div>
-      
+      <%end %>
     <% end %>
   </div>
 </div>
-
 
 
 

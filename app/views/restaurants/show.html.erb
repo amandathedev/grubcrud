@@ -14,6 +14,7 @@
       <div id="item-quantity">
         <%= form_for @order_item do |f| %>
           <%= f.hidden_field :item_id, value: item.id %>
+          <%= f.label :quantity, "Add Quantity:" %>
           <%= f.number_field :quantity, min: 0 %>
           <%= f.submit "Add to cart", class: "btn btn-danger btn-md float-button"%>
           <hr>
