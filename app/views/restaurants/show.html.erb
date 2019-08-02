@@ -8,10 +8,10 @@
         <%= form_for @order_item do |f| %>
           <%= f.hidden_field :item_id, value: item.id %>
           <%= f.number_field :quantity, min: 0 %>
-          <%= f.submit "Add to cart"%>
+          <%= f.submit "Add to cart", class: "btn btn-danger btn-md float-button"%>
           <hr>
         <% end %></p>
       </div>
   <% end %>
-<a href = '/cart'><button type="button" class="btn btn-danger btn-md">Go to My Cart</button></a>
+<a href = '/cart'><button type="button" class="btn btn-danger btn-md center-button">Go to My Cart</button></a>
 </div>
