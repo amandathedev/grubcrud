@@ -1,5 +1,5 @@
-<h1>Sign up for GrubCRUD</h1>
-<br>
+<!-- <h1>Sign up for GrubCRUD</h1>
+<br> -->
 
 <% if flash[:message] %>
     <div class="alert alert-danger" role="alert">
@@ -9,6 +9,7 @@
     </div>
 <% end %>
 
+<!-- 
 <%= form_for @user do |f| %>
     <%= f.label 'Full name: '%>
     <%= f.text_field :name %><br>
@@ -24,6 +25,117 @@
     <%= f.email_field :email %><br>
     <%= f.label 'Phone number: '%>
     <%= f.phone_field :phone_number %><br>
-    <button type="submit" class="btn btn-danger">Sign up</button>
-<% end %>
+    <button type="submit" class="btn btn-danger">Sign up</button> √
+<% end %> -->
 
+<form action="#" name="myForm" method="post">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="well center-block">
+				<div class="well-header">
+					<h3 class="text-center text-danger"> Sign up for GrubCRUD </h3>
+					<hr>
+				</div>
+
+				<div class="row">
+					<div class="col-md-12 col-sm-12 col-xs-12">
+						<div class="form-group">
+							<div class="input-group">
+								<div class="input-group-addon">
+									<i class="glyphicon glyphicon-user"></i>
+								</div>
+								<input type="text" placeholder="Full Name" name="txtfname" class="form-control">	
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-xs-12 col-sm-12 col-md-12">
+						<div class="form-group">
+							<div class="input-group">
+								<div class="input-group-addon">
+									<i class="glyphicon glyphicon-user"></i>
+								</div>
+								<input type="text" placeholder="Username" name="txtlname" class="form-control">
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-12 col-sm-12 col-xs-12">
+						<div class="form-group">
+							<div class="input-group">
+								<div class="input-group-addon">
+									<i class="glyphicon glyphicon-lock"></i>
+								</div>
+								<input type="password" minlength="8" maxlength="20" placeholder="Password" name="txtpass" class="form-control">
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-12 col-sm-12 col-xs-12">
+						<div class="form-group">
+							<div class="input-group">
+								<div class="input-group-addon">
+									<i class="glyphicon glyphicon-lock"></i>
+								</div>
+								<input type="password" minlength="8" maxlength="20" placeholder="Confirm Password" name="txtpass" class="form-control">
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-12 col-xs-12 col-sm-12">
+						<div class="form-group">
+							<div class="input-group">
+								<div class="input-group-addon">
+									<i class="glyphicon glyphicon-list-alt"></i>
+								</div>
+								<textarea class="form-control" name="txtadd" placeholder="Delivery Address"></textarea>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-12 col-xs-12 col-sm-12">
+						<div class="form-group">
+							<div class="input-group">
+								<div class="input-group-addon">
+									<i class="glyphicon glyphicon-envelope"></i>
+								</div>
+								<input type="email" class="form-control" name="txtmail" placeholder="E-Mail">
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-12 col-xs-12 col-sm-12">
+						<div class="form-group">
+							<div class="input-group">
+								<div class="input-group-addon">
+									<i class="glyphicon glyphicon-phone"></i>
+								</div>
+								<input type="number" minlength="10" maxlength="12" class="form-control" name="txtmobile" placeholder="Phone Number">
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="row widget">
+					<div class="col-md-12 col-xs-12 col-sm-12">
+						<button type="submit" class="btn btn-danger btn-block"> Register </button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+</form>

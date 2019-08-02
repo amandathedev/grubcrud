@@ -2,58 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-// .flex {
-//     display: flex;
-// }
-
-// *{
-//     margin: 0;
-//     padding: 0;
-// }
-
-.rate {
-    float: left;
-    height: 46px;
-    // padding: 0 10px;
-}
-
-.rate:not(:checked) > input {
-    position: absolute;
-    top: -9999px;
-}
-
-.rate:not(:checked) > label {
-    float:right;
-    width:1em;
-    overflow:hidden;
-    white-space:nowrap;
-    cursor:pointer;
-    font-size: 2em;
-    color:#ccc;
-}
-
-.rate:not(:checked) > label:before {
-    content: '★ ';
-}
-
-.rate > input:checked ~ label {
-    color: #ffc700;    
-}
-
-.rate:not(:checked) > label:hover,
-.rate:not(:checked) > label:hover ~ label {
-    color: #deb217;  
-}
-
-.rate > input:checked + label:hover,
-.rate > input:checked + label:hover ~ label,
-.rate > input:checked ~ label:hover,
-.rate > input:checked ~ label:hover ~ label,
-.rate > label:hover ~ input:checked ~ label {
-    color: #c59b08;
-}
-
-/* Modified from: https://github.com/mukulkant/Star-rating-using-pure-css */
 
 #cuisine-name {
     text-align: center;
@@ -67,3 +15,24 @@
 #restaurant-names {
     text-align: center;
 }
+
+.card-title {
+    text-align: center;
+}
+
+@mixin BoxShadowHelper($level: 1){
+    @if $level == 1 {
+      box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .38), 0 2px 10px 0 rgba(0, 0, 0, .22);
+    }
+    @if $level == 2 {
+      box-shadow: 0 5px 11px 0 rgba(0, 0, 0, .38), 0 4px 15px 0 rgba(0, 0, 0, .25);
+    }
+  }
+  a {transition: .25s all;}
+  .card {
+    overflow: hidden;
+    @include BoxShadowHelper(1);
+    transition: .25s box-shadow;
+    &:focus,
+    &:hover {@include BoxShadowHelper(2);}
+  }

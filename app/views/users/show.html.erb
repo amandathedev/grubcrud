@@ -1,22 +1,25 @@
-<h1>Hey, <%=@current_user.name.capitalize%>!</h1>
-<br>
-<h3>Your order history:</h3>
+<div class="profile-container">
+  <h1>Hey, <%=@current_user.name.capitalize%>!</h1>
+  <br>
+  <h3>Your order history:</h3>
     <%if @current_user.orders.count > 0%>
         <%@current_user.orders.each do |order|%>
-    
-            Order No. <%=order.id%>
-            <%=order.created_at.strftime("%b %d, %Y")%>
-            <%cart_total = 0 %>
-            <%order.order_items.each do |i|%>
-                <%cart_total = cart_total + i.item.price * i.quantity.to_i%>
-            <%end%>
-            Order Total: <%=number_to_currency cart_total%><br>
-        <%end%>
-        <%else %>
-        <%="You have not placed any orders yet."%>
-        <br>
-        <%end %>
-<br>
-<a href = '/users/<%=@current_user.id%>/edit'><button type="button" class="btn btn-secondary btn-sm">Edit My Details</button></a><br>
-<font color = "#505050"><%= link_to "Delete User", @current_user, :data => {:confirm => "You sure?", :method => "delete"} %></font>
+          Order No. <%=order.id%>
+          <%=order.created_at.strftime("%b %d, %Y")%>
+          <%cart_total = 0 %>
+          <%order.order_items.each do |i|%>
+              <%cart_total = cart_total + i.item.price * i.quantity.to_i%>
+          <%end%>
+        Order Total: <%=number_to_currency cart_total%><br>
+      <%end%>
+    <%else %>
+      <%="You have not placed any orders yet."%>
+      <br>
+    <%end %>
+  <br>
+  <div id="button-container">
+    <a href = '/users/<%=@current_user.id%>/edit'><button type="button" class="btn btn-danger btn-sm float-button">Edit My Details</button></a><br>
 
+    <button type="button" class="btn btn-danger btn-sm"><%= link_to "Delete My Account", @current_user, :data => {:confirm => "Are you sure?", :method => "delete", class: 'delete-button float-button'} %></button>
+  </div>
+</div>
