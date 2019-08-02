@@ -26,7 +26,7 @@ Cuisine.create(name: 'German')
       rating: Faker::Number.between(1, 100),
       review: Faker::Restaurant.review,
       img_url: @food_url,
-      cuisine_id: Cuisine.find(Faker::Number.between(1, 10)).id,
+      cuisine_id: Cuisine.find(Faker::Number.between(1, 9)).id,
       description: Faker::Restaurant.description
     )
 end
@@ -54,7 +54,7 @@ end
   end
   Item.create(
     name: Faker::Food.dish,
-    price: Faker::Commerce.price,
+    price: Faker::Commerce.price(range = 1..30.0, as_string = false),
     description: Faker::Food.description,
     img_url: @food_url,
     restaurant_id: Faker::Number.between(1, 200)

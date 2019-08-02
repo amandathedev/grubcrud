@@ -1,22 +1,25 @@
-<h1>Your order is on its way!</h1>
+<div id="order-confirmation">
+  <h1>Your order is on its way!</h1>
 
-<h3> Receipt for Order No. <%= @order.id %></h3>
-<br>
-<div id="order-wrapper">
-  <% if @order_items.any? %>
-      <% @order_items.each do |i| %>
-        <p><%= i.item.name %> |
-        Unit Price: <%= number_to_currency i.item.price %> | Quantity: <%= i.quantity %></p>
-      <% end %>
-    <%cart_total = 0 %>
-      <%@order_items.each do |i|%>
-        <%cart_total = cart_total + i.item.price * i.quantity.to_i%>
-      <%end%>
-        <font size = 4>Order Total: <%=number_to_currency cart_total%></font>
-      <% else %>
-        <p>Your shopping cart is empty.</p>
-  <% end %>
+  <h3> Receipt for Order No. <%= @order.id %></h3>
   <br>
-  <br>
-<a href = '/'><button type="button" class="btn btn-danger btn-md">Go Home</button></a>
+  <div id="order-wrapper">
+    <% if @order_items.any? %>
+        <% @order_items.each do |i| %>
+          <p><%= i.item.name %> |
+          
+          Unit Price: <%= number_to_currency i.item.price %> | Quantity: <%= i.quantity %></p>
+        <% end %>
+      <%cart_total = 0 %>
+        <%@order_items.each do |i|%>
+          <%cart_total = cart_total + i.item.price * i.quantity.to_i%>
+        <%end%>
+          <font size = 4>Order Total: <%=number_to_currency cart_total%></font>
+        <% else %>
+          <p>Your shopping cart is empty.</p>
+    <% end %>
+    <br>
+    <br>
+  <a href = '/'><button type="button" class="btn btn-danger btn-md">Go Home</button></a>
 
+</div>

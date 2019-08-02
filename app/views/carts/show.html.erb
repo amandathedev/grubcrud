@@ -6,6 +6,7 @@
       <p>Restaurant: <%= i.item.restaurant.name%> </p>
       <strong><%= i.item.name %> </strong><br> Unit Price: <%= number_to_currency i.item.price %><br>Quantity: <%= i.quantity %> |  
       <%= link_to "Delete", i, :data => {:confirm => "Are you sure?", :method => "delete"}, class: 'red-hover' %></p>
+      <hr>
     <% end %>
 
     <%cart_total = 0 %>
@@ -14,21 +15,16 @@
       <%cart_total = cart_total + i.item.price * i.quantity.to_i%>
     <%end%>
 
-    <font size = 4><span id="total">Your Total: <%=number_to_currency cart_total%></span></font>
+    <font size = 5em><span id="total">Your Total: <%=number_to_currency cart_total%></span></font>
     <br>
   <% else %>
     <p>Your shopping cart is empty. <br> Are you getting hungry?</p>
   <% end %>
   <br>
-<a href="#" onClick="history.go(-1);return true;"><button type="button" class="btn btn-danger btn-sm">View all Restaurants</button></a>
+  <div id="button-wrapper">
+    <a href="#" onClick="history.go(-1);return true;"><button type="button" class="btn btn-danger btn-sm">View all Restaurants</button></a>
 
-
-
-
-
-<br>
-<br>
-<%if @order_items.any? %>
-  <a href = '/orders/<%="#{session[:order_id]}"%>'><button type="button" class="btn btn-outline-danger btn-sm">Checkout</button></a>
-<%end%>
-
+    <%if @order_items.any? %>
+      <a href = '/orders/<%="#{session[:order_id]}"%>'><button type="button" class="btn btn-outline-danger btn-sm">Checkout</button></a>
+    <%end%>
+  </div>

@@ -1,18 +1,18 @@
-<h1 class="login-form">Login</h1>
+
 
 <% if flash[:message] %>
     <div class="alert alert-warning" role="alert">
         <div class="notice"><%= flash[:message] %></div>
     </div>
 <% end %>
-
+<!--
 <%= form_tag '/login' do %>
   <%= label_tag :username %>
   <%= text_field_tag :username %><br>
   <%= label_tag :password %>
   <%= password_field_tag :password %><br>
   <button type="submit" class="btn btn-danger">Sign in</button>
-<% end %>
+<% end %> -->
 
 <div id="login" class="container">
   <div class="row-fluid">
@@ -21,22 +21,23 @@
         <div class="center">
           <img src="https://i.imgur.com/4JYNxSq.png" alt="logo"> 
         </div>
-        <form action="/users/login" style="" class="login-form" id="UserLoginForm" method="post" accept-charset="utf-8">
+        <form action="/login" style="" class="login-form" id="UserLoginForm" method="post" accept-charset="utf-8">
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
           <div class="control-group">
             <div class="input-prepend">
               <span class="add-on"><i class="icon-user"></i></span>
-              <input name="data[User][username]" required="required" placeholder="Username" maxlength="255" type="text" id="UserUsername"> 
+              <input name="username" required="required" placeholder="Username" maxlength="255" type="text" id="username"> 
             </div>
           </div>
           <div class="control-group">
             <div class="input-prepend">
               <span class="add-on"><i class="icon-lock"></i></span>
-              <input name="data[User][password]" required="required" placeholder="Password" type="password" id="UserPassword"> 
+              <input name="password" required="required" placeholder="Password" type="password" id="password"> 
             </div>
           </div>
           <div class="control-group">
             <label id="remember-me">
-              <input type="checkbox" name="data[User][remember_me]" value="1" id="UserRememberMe"> Remember Me?</label>
+              <input type="checkbox" name="user[remember_me]" value="1" id="UserRememberMe"> Remember Me?</label>
           </div>
           <div class="control-group">
             <input class="btn btn-danger btn-large btn-block" type="submit" value="Sign in"> 

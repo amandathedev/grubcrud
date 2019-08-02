@@ -11,5 +11,6 @@
 // about supported directives.
 //
 //= require rails-ujs
+//= require restaurants
 //= require turbolinks
 //= require_tree .

@@ -9,7 +9,7 @@
     </div>
 <% end %>
 
-<!-- 
+
 <%= form_for @user do |f| %>
     <%= f.label 'Full name: '%>
     <%= f.text_field :name %><br>
@@ -26,9 +26,10 @@
     <%= f.label 'Phone number: '%>
     <%= f.phone_field :phone_number %><br>
     <button type="submit" class="btn btn-danger">Sign up</button> √
-<% end %> -->
+<% end %>
 
-<form action="#" name="myForm" method="post">
+<form action="/user" name="myForm" method="post">
+	<%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
 	<div class="container-fluid">
 		<div class="row">
 			<div class="well center-block">
@@ -44,7 +45,7 @@
 								<div class="input-group-addon">
 									<i class="glyphicon glyphicon-user"></i>
 								</div>
-								<input type="text" placeholder="Full Name" name="txtfname" class="form-control">	
+								<input type="text" placeholder="Full Name" name="txtfname" class="form-control" id="name" name="name">	
 							</div>
 						</div>
 					</div>
@@ -57,7 +58,7 @@
 								<div class="input-group-addon">
 									<i class="glyphicon glyphicon-user"></i>
 								</div>
-								<input type="text" placeholder="Username" name="txtlname" class="form-control">
+								<input type="text" placeholder="Username" name="txtlname" class="form-control" id="username" name="username">
 							</div>
 						</div>
 					</div>
@@ -70,7 +71,7 @@
 								<div class="input-group-addon">
 									<i class="glyphicon glyphicon-lock"></i>
 								</div>
-								<input type="password" minlength="8" maxlength="20" placeholder="Password" name="txtpass" class="form-control">
+								<input type="password" minlength="8" maxlength="20" placeholder="Password" name="txtpass" class="form-control" id="password" name="password">
 							</div>
 						</div>
 					</div>
@@ -83,7 +84,7 @@
 								<div class="input-group-addon">
 									<i class="glyphicon glyphicon-lock"></i>
 								</div>
-								<input type="password" minlength="8" maxlength="20" placeholder="Confirm Password" name="txtpass" class="form-control">
+								<input type="password" minlength="8" maxlength="20" placeholder="Confirm Password" name="txtpass" class="form-control" id="password_confirmation" name="password_confirmation">
 							</div>
 						</div>
 					</div>
@@ -96,7 +97,7 @@
 								<div class="input-group-addon">
 									<i class="glyphicon glyphicon-list-alt"></i>
 								</div>
-								<textarea class="form-control" name="txtadd" placeholder="Delivery Address"></textarea>
+								<textarea class="form-control" name="txtadd" placeholder="Delivery Address" id="address" name="address"></textarea>
 							</div>
 						</div>
 					</div>
@@ -109,7 +110,7 @@
 								<div class="input-group-addon">
 									<i class="glyphicon glyphicon-envelope"></i>
 								</div>
-								<input type="email" class="form-control" name="txtmail" placeholder="E-Mail">
+								<input type="email" class="form-control" name="txtmail" placeholder="E-Mail" id="email" name="email">
 							</div>
 						</div>
 					</div>
@@ -122,7 +123,7 @@
 								<div class="input-group-addon">
 									<i class="glyphicon glyphicon-phone"></i>
 								</div>
-								<input type="number" minlength="10" maxlength="12" class="form-control" name="txtmobile" placeholder="Phone Number">
+								<input type="number" minlength="10" maxlength="12" class="form-control" name="txtmobile" placeholder="Phone Number" id="phone_number" name="phone_number">
 							</div>
 						</div>
 					</div>

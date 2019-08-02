@@ -18,7 +18,7 @@
     <%end %>
   <br>
   <div id="button-container">
-    <a href = '/users/<%=@current_user.id%>/edit'><button type="button" class="btn btn-danger btn-sm float-button">Edit My Details</button></a><br>
+    <button type="button" class="btn btn-danger btn-sm"><a href = '/users/<%=@current_user.id%>/edit'>Edit My Details</a></button>
 
     <button type="button" class="btn btn-danger btn-sm"><%= link_to "Delete My Account", @current_user, :data => {:confirm => "Are you sure?", :method => "delete", class: 'delete-button float-button'} %></button>
   </div>

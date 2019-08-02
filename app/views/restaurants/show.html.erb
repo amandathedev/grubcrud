@@ -4,8 +4,6 @@
     </div>
 <% end %>
 
-<span class="input-number-decrement">–</span><input class="input-number" type="text" value="1" min="0" max="10"><span class="input-number-increment">+</span>
-
 <div id="restaurant-wrapper">
   <% @restaurant.items.each do |item| %>
     <p><span id="item-names"><%= item.name %></span>  <span id="item-price"><%= number_to_currency item.price %></span></p>
@@ -14,7 +12,8 @@
       <div id="item-quantity">
         <%= form_for @order_item do |f| %>
           <%= f.hidden_field :item_id, value: item.id %>
-          <%= f.number_field :quantity, min: 0 %>
+          
+          <span class="input-number-decrement">–</span><input class="input-number" type="text" value="1" min="0" max="10"><span class="input-number-increment">+</span>
           <%= f.submit "Add to cart", class: "btn btn-danger btn-md float-button"%>
           <hr>
         <% end %></p>
@@ -22,3 +21,47 @@
   <% end %>
 <a href = '/cart'><button type="button" class="btn btn-danger btn-md center-button">Go to My Cart</button></a>
 </div>
+ <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+ <script>
+(function() {
+ 
+    window.inputNumber = function(el) {
+      console.log(el)
+  
+      var min = el.attr('min') || false;
+      var max = el.attr('max') || false;
+  
+      var els = {};
+  
+      els.dec = el.prev();
+      els.inc = el.next();
+  
+      el.each(function() {
+        init($(this));
+      });
+  
+      function init(el) {
+  
+        els.dec.on('click', decrement);
+        els.inc.on('click', increment);
+  
+        function decrement() {
+          var value = el[0].value;
+          value--;
+          if(!min || value >= min) {
+            el[0].value = value;
+          }
+        }
+  
+        function increment() {
+          var value = el[0].value;
+          value++;
+          if(!max || value <= max) {
+            el[0].value = value++;
+          }
+        }
+      }
+    }
+  })();
+  
+  inputNumber($('.input-number'));</script>
