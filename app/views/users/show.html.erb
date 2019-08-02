@@ -18,5 +18,5 @@
         <%end %>
 <br>
 <a href = '/users/<%=@current_user.id%>/edit'><button type="button" class="btn btn-secondary btn-sm">Edit My Details</button></a><br>
-<font color = "#505050"<%= link_to "Delete User", @current_user, :data => {:confirm => "You sure?", :method => "delete"} %></font>
+<font color = "#505050"><%= link_to "Delete User", @current_user, :data => {:confirm => "You sure?", :method => "delete"} %></font>
 
