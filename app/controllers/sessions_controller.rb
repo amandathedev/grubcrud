@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
       redirect_to @current_user
     end
   end
-
+#everytime we log in we create new user and order session
   def create
     session[:incorrect_count] ||= 0
     username = params[:username]
@@ -14,6 +14,8 @@ class SessionsController < ApplicationController
     user = User.find_by(username: username)
       if user && user.authenticate(password)
         session[:user_id] = user.id
+        order = Order.create(user_id: session[:user_id], status: false)
+        session[:order_id] = order.id
         redirect_to root_path
       else
     flash[:message] = "Incorrect username or password. Please try again."
@@ -27,7 +29,7 @@ class SessionsController < ApplicationController
 
   def destroy
     session.delete(:user_id)
-    # session.delete(:order_id)
+    session.delete(:order_id)
     redirect_to root_path
   end
 
