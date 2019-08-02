@@ -22,7 +22,7 @@
   <% end %>
   <br>
   <div id="button-wrapper">
-    <a href="#" onClick="history.go(-1);return true;"><button type="button" class="btn btn-danger btn-sm">View all Restaurants</button></a>
+    <a href="/" onClick="history.go(-1);return true;"><button type="button" class="btn btn-danger btn-sm">View all Restaurants</button></a>
 
     <%if @order_items.any? %>
       <a href = '/orders/<%="#{session[:order_id]}"%>'><button type="button" class="btn btn-outline-danger btn-sm">Checkout</button></a>

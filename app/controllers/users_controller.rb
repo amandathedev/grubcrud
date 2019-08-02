@@ -24,7 +24,7 @@ class UsersController < ApplicationController
   def update
     find_user
     if @user.update(user_params)
-      flash[:message] = "Your account has been successfully updated"
+      flash[:message] = "Your account has been successfully updated."
       redirect_to @user
     else
       flash[:errors] = @user.errors.full_messages
