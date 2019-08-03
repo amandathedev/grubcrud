@@ -7,9 +7,9 @@ class OrderItemsController < ApplicationController
     @order = current_order
     @order_item = @order.order_items.new(item_params)
       if @order_item.valid?
-          @order_item.save
-          flash[:success] = "Item has been added to cart!"
-          redirect_back(fallback_location: root_path)
+        @order_item.save
+        flash[:success] = "Item has been added to cart!"
+        redirect_back(fallback_location: root_path)
     else 
       flash[:success] = "Please select at least one item"
       redirect_back(fallback_location: root_path)
