@@ -1,24 +1,23 @@
-# README
+# GrubCrud
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+GrubCrud is an app for users to browse cuisines, restaurants, and menus to place orders for food items.
 
-Things you may want to cover:
+## Installation
 
-* Ruby version
+Clone the repo and run the command:
 
-* System dependencies
+```bash
+bundle install
+```
 
-* Configuration
+## Usage
 
-* Database creation
+Feel free to make new user accounts.
 
-* Database initialization
+## Contributing
 
-* How to run the test suite
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-* Services (job queues, cache servers, search engines, etc.)
+## License
 
-* Deployment instructions
-
-* ...
+[MIT](https://choosealicense.com/licenses/mit/)
