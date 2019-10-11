@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2019_07_29_214659) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "cuisines", force: :cascade do |t|
     t.string "name"
     t.string "img_url"
@@ -20,20 +23,19 @@ ActiveRecord::Schema.define(version: 2019_07_29_214659) do
   end
 
   create_table "items", force: :cascade do |t|
+    t.integer "restaurant_id"
     t.string "name"
     t.integer "price"
     t.string "img_url"
     t.string "description"
-    t.integer "restaurant_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["restaurant_id"], name: "index_items_on_restaurant_id"
   end
 
   create_table "order_items", force: :cascade do |t|
     t.integer "quantity"
-    t.integer "order_id"
-    t.integer "item_id"
+    t.bigint "order_id"
+    t.bigint "item_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["item_id"], name: "index_order_items_on_item_id"
@@ -41,7 +43,7 @@ ActiveRecord::Schema.define(version: 2019_07_29_214659) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.integer "user_id"
+    t.bigint "user_id"
     t.boolean "status"
     t.integer "total_price"
     t.datetime "created_at", null: false
@@ -50,16 +52,15 @@ ActiveRecord::Schema.define(version: 2019_07_29_214659) do
   end
 
   create_table "restaurants", force: :cascade do |t|
+    t.integer "cuisine_id"
     t.string "name"
     t.string "phone_number"
     t.integer "rating"
     t.string "review"
     t.string "description"
     t.string "img_url"
-    t.integer "cuisine_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["cuisine_id"], name: "index_restaurants_on_cuisine_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -73,4 +74,7 @@ ActiveRecord::Schema.define(version: 2019_07_29_214659) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "order_items", "items"
+  add_foreign_key "order_items", "orders"
+  add_foreign_key "orders", "users"
 end
