@@ -2,9 +2,11 @@
 
 GrubCrud is an app for users to browse cuisines, restaurants, and menus to place orders for food items.
 
+![Demo Image](grubcrud.png)
+
 ## Installation
 
-Clone the repo and run the command:
+Clone the repo to your local machine and run the command:
 
 ```bash
 bundle install
